@@ -1,7 +1,7 @@
 import { Layout ,Icon} from 'antd'
 import React,{Component} from 'react'
 import { connect } from 'react-redux'
-import { toogleFn } from '../action/toogle'
+import { toogleFn } from '../../action/toogle'
 
 const { Header } = Layout
 

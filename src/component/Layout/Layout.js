@@ -2,6 +2,8 @@ import Header from './Header'
 import { Layout, Menu ,Icon} from 'antd'
 import { connect } from 'react-redux'
 import React ,{Component}from 'react'
+import Avatar from '../Avatar/Avatar'
+import './Layout.less'
 const {  Footer, Sider, Content } = Layout;
 const SubMenu = Menu.SubMenu
 
@@ -10,10 +12,12 @@ const SubMenu = Menu.SubMenu
 class LayoutCom extends Component{
     render(){
         return(
-            <Layout style={{ minHeight: '100vh' }}>
+            <Layout style={{ minHeight: '100vh' }} className="layout-part">
                 <Sider  collapsible
                         trigger={null}
-                        collapsed={this.props.collapsed}>
+                        collapsed={this.props.collapsed}
+                        width={300}>
+                    <Avatar />
                     <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
                         <Menu.Item key="1">
                             <Icon type="book" />
