@@ -1,21 +1,36 @@
 import { Layout ,Icon} from 'antd'
 import React,{Component} from 'react'
+import { connect } from 'react-redux'
+import { toogleFn } from '../action/toogle'
 
 const { Header } = Layout
 
 class HeaderCom extends Component{
     render(){
         return(
-            <Layout>
-                <Header>
-                    <Icon
+            <Header style={{ background: '#fff', padding: 0 }}>
+                <Icon
                     className="trigger"
-                    type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
+                    type={this.props.collapsed ? 'menu-unfold' : 'menu-fold'}
+                    onClick={this.props.toogle}
                 />
-                </Header>
-            </Layout>
+            </Header>
         )
     }
 }
 
-export default HeaderCom
+function mapStateToProps(state){
+    return{
+        collapsed:state.toogleState.collapsed
+    }
+}
+
+function mapDispatchToProps(dispatch){
+    return{
+        toogle:()=>{
+            dispatch(toogleFn())
+        }
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(HeaderCom)
